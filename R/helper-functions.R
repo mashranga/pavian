@@ -62,11 +62,12 @@ beautify_taxLineage <- function(x, remove_last=TRUE, break_it_up = FALSE) {
   if (isTRUE(break_it_up)) {
     x <- gsub("\\|._", "<wbr>>", x)
   } else {
-    x <- gsub("\\|._", ">", x)
+    x <- gsub("\\|._", " > ", x)
   }
   x %>%
     sub("^._","", .) %>%
-    gsub(" ", "&nbsp;", .) %>%
+    # gsub(" ", "&nbsp;", .) %>%
+    gsub(" ", " ", .) %>%
     gsub("-","&#x2011;", .)
 }
 
